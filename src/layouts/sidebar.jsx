@@ -9,7 +9,7 @@ import {
 } from "@/components/ui/dropdown-menu";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { cn } from "@/lib/utils";
-import { CircleUser, Home, Menu, Package2 } from "lucide-react";
+import { CircleUser, Home, Menu, Package2, List } from "lucide-react"; // Import List icon
 import { NavLink, Outlet } from "react-router-dom";
 
 const sidebarItems = [
@@ -17,6 +17,11 @@ const sidebarItems = [
     title: "Home",
     to: "/",
     icon: <Home className="h-4 w-4" />,
+  },
+{
+    title: "Transactions", // Add Transactions to the sidebar
+    to: "/transactions",
+    icon: <List className="h-4 w-4" />,
   },
 ];
 
@@ -44,7 +49,7 @@ const Sidebar = () => (
       <div className="flex h-14 items-center border-b px-4 lg:h-[60px] lg:px-6">
         <NavLink to="/" className="flex items-center gap-2 font-semibold">
           <Package2 className="h-6 w-6" />
-          <span>Acme Inc</span>
+          <span>Sneaker Accounting</span> {/* Update the app name */}
         </NavLink>
       </div>
       <div className="flex-1">
@@ -76,7 +81,7 @@ const MobileSidebar = () => (
           className="flex items-center gap-2 text-lg font-semibold mb-4"
         >
           <Package2 className="h-6 w-6" />
-          <span className="sr-only">Acme Inc</span>
+          <span>Sneaker Accounting</span> {/* Update the app name */}
         </NavLink>
         {sidebarItems.map((item) => (
           <SidebarNavLink key={item.to} to={item.to}>
